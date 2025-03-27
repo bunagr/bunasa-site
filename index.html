@@ -143,6 +143,73 @@
             box-shadow: 0 6px 8px -1px rgba(59, 130, 246, 0.5);
         }
 
+        .footer {
+            background: #1e293b;
+            padding: 6rem 5% 2rem;
+            color: #94a3b8;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: #3b82f6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -187,5 +254,51 @@
             <p>Built for developers with Git integration, CI/CD pipelines, and powerful APIs for automation.</p>
         </div>
     </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#press">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Products</h3>
+                <ul>
+                    <li><a href="#compute">Cloud Compute</a></li>
+                    <li><a href="#storage">Storage</a></li>
+                    <li><a href="#database">Database</a></li>
+                    <li><a href="#networking">Networking</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#docs">Documentation</a></li>
+                    <li><a href="#status">Status</a></li>
+                    <li><a href="#security">Security</a></li>
+                    <li><a href="#help">Help Center</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="#twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#github"><i class="fab fa-github"></i></a>
+                    <a href="#linkedin"><i class="fab fa-linkedin"></i></a>
+                    <a href="#discord"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Bunasa. All rights reserved.</p>
+        </div>
+    </footer>
+
+
 </body>
 </html>
