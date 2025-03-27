@@ -1,21 +1,22 @@
-name: Deploy Static Site to Cloudflare Pages
+name: Bunasa-Site
 
 on:
   push:
     branches:
-      - main  # Trigger on push to the 'main' branch
+      - main  # Trigger deployment on push to 'main' branch
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3  # Checkout the code
+        uses: actions/checkout@v2  # Checkout the code from your GitHub repository
+
+      - name: Set up Cloudflare Wrangler
+        uses: cloudflare/wrangler-action@v3  # Use the Wrangler action for deployment
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}  # Cloudflare API Token stored in GitHub Secrets
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v3  # Use the official Pages action
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}  # Your Cloudflare API Token stored in GitHub Secrets
-          projectName: your-project-name  # The name of your Cloudflare Pages project
-          directory: ./  # Directory containing your static files (use ./ if the files are in the root directory)
+        run: wrangler pages publish ./  # Publish the static site to Cloudflare Pages
