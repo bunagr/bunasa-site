@@ -1,9 +1,9 @@
-name: Deploy Static Site to Cloudflare
+name: Bunasa-site
 
 on:
   push:
     branches:
-      - main  # Deploy on push to the 'main' branch
+      - main  # Trigger deployment on push to the 'main' branch
 
 jobs:
   deploy:
@@ -13,11 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Deploy to Cloudflare
-        uses: cloudflare/github-actions@v2
+      - name: Set up Cloudflare Wrangler
+        uses: cloudflare/wrangler-action@v2
         with:
-          api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          zone: ${{ secrets.CLOUDFLARE_ZONE_ID }}
-          account-id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          project-name: bunasa-site  # Name of your project
-          directory: ./  # Path to the static site files (root directory)
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}  # Your Cloudflare API token
+
+      - name: Publish to Cloudflare Pages
+        run: |
+          wrangler pages publish ./  # This publishes the current directory to Cloudflare Pages
