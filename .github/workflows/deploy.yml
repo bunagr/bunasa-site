@@ -3,21 +3,17 @@ name: Bunasa-site
 on:
   push:
     branches:
-      - main  # Trigger deployment on push to the 'main' branch
+      - main  # Trigger the deployment on push to the 'main' branch
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    name: Deploy to Cloudflare
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4  # Use the latest checkout action
 
-      - name: Set up Cloudflare Wrangler
-        uses: cloudflare/wrangler-action@v2
+      - name: Deploy to Cloudflare
+        uses: cloudflare/wrangler-action@v3  # Use the wrangler-action (v3)
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}  # Your Cloudflare API token
-
-      - name: Publish to Cloudflare Pages
-        run: |
-          wrangler pages publish ./  # This publishes the current directory to Cloudflare Pages
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}  # Your Cloudflare API token stored in GitHub Secrets
