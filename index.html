@@ -2,80 +2,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bunasa Cloud Hosting</title>
+    <title>Bunasa</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
         }
 
         .header {
-            background: #2c3e50;
-            padding: 1rem 5%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
         }
 
         .logo {
-            color: white;
+            color: #1e293b;
             font-size: 1.5rem;
-            font-weight: bold;
+            font-weight: 700;
         }
 
         .nav a {
-            color: white;
+            color: #64748b;
             text-decoration: none;
-            margin-left: 2rem;
+            margin-left: 2.5rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #3b82f6;
         }
 
         .hero {
-            background: linear-gradient(135deg, #3498db, #2c3e50);
-            padding: 5rem 5%;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 12rem 5% 8rem;
             text-align: center;
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .features {
-            padding: 5rem 5%;
+            padding: 8rem 5%;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            background: white;
         }
 
         .feature {
-            text-align: center;
+            text-align: left;
             padding: 2rem;
+            border-radius: 1rem;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
         }
 
         .feature i {
-            font-size: 3rem;
-            color: #3498db;
+            font-size: 2.5rem;
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+            background: #eff6ff;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .feature h2 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .feature p {
+            color: #64748b;
+            line-height: 1.6;
         }
 
         .cta-button {
-            background: #e74c3c;
+            background: #3b82f6;
             color: white;
-            padding: 1rem 2rem;
-            border-radius: 5px;
+            padding: 1.25rem 2.5rem;
+            border-radius: 0.75rem;
             text-decoration: none;
             display: inline-block;
-            margin-top: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px -1px rgba(59, 130, 246, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav a {
+                margin-left: 1rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="logo">Bunasa Cloud</div>
+        <div class="logo">Bunasa</div>
         <nav class="nav">
             <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
@@ -84,26 +165,26 @@
     </header>
 
     <section class="hero">
-        <h1>Cloud Hosting Made Simple</h1>
-        <p>Deploy your applications in seconds with our reliable cloud infrastructure</p>
-        <a href="#signup" class="cta-button">Get Started</a>
+        <h1>Cloud Hosting for<br>the Modern Era</h1>
+        <p>Experience lightning-fast, secure, and scalable infrastructure designed for next-generation applications</p>
+        <a href="#signup" class="cta-button">Start Free Trial</a>
     </section>
 
     <section class="features">
         <div class="feature">
-            <i class="fas fa-server"></i>
+            <i class="fas fa-bolt"></i>
             <h2>High Performance</h2>
-            <p>Lightning-fast servers with 99.9% uptime guarantee</p>
+            <p>Deploy globally with sub-second response times and 99.99% guaranteed uptime across our network.</p>
         </div>
         <div class="feature">
             <i class="fas fa-shield-alt"></i>
-            <h2>Security First</h2>
-            <p>Enterprise-grade security and DDoS protection</p>
+            <h2>Enterprise Security</h2>
+            <p>Advanced DDoS protection, SSL encryption, and automated security patches keep your data safe.</p>
         </div>
         <div class="feature">
-            <i class="fas fa-headset"></i>
-            <h2>24/7 Support</h2>
-            <p>Expert support team available round the clock</p>
+            <i class="fas fa-code"></i>
+            <h2>Developer First</h2>
+            <p>Built for developers with Git integration, CI/CD pipelines, and powerful APIs for automation.</p>
         </div>
     </section>
 </body>
