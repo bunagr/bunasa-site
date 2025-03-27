@@ -1,0 +1,23 @@
+name: Deploy Static Site to Cloudflare
+
+on:
+  push:
+    branches:
+      - main  # Trigger deployment on push to the 'main' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to Cloudflare
+        uses: cloudflare/github-actions@v2
+        with:
+          api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          zone: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          account-id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          project-name: Bunasa-static
+          directory: ./  # Path to deploy (root of the repository)
