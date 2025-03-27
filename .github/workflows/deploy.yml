@@ -3,7 +3,7 @@ name: Deploy Static Site to Cloudflare
 on:
   push:
     branches:
-      - main  # Trigger deployment on push to the 'main' branch
+      - main  # Deploy on push to the 'main' branch
 
 jobs:
   deploy:
@@ -19,5 +19,5 @@ jobs:
           api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           zone: ${{ secrets.CLOUDFLARE_ZONE_ID }}
           account-id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          project-name: Bunasa-static
-          directory: ./  # Path to deploy (root of the repository)
+          project-name: bunasa-site  # Name of your project
+          directory: ./  # Path to the static site files (root directory)
