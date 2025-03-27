@@ -19,4 +19,6 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}  # Cloudflare API Token stored in GitHub Secrets
 
       - name: Deploy to Cloudflare Pages
-        run: wrangler pages publish ./  # Publish the static site to Cloudflare Pages
+        run: |
+          # Make sure the correct directory is specified here
+          wrangler pages publish ./  # Publish from the root directory, adjust if using a different folder
